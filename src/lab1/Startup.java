@@ -19,11 +19,17 @@ public class Startup {
             may need to create a new class that talks to Employee. This does
             not have to be a GUI class.
         */
+        
+        //change this to only access through methods
+        //these are taken out because properties should not be accessed directly
         Employee employee = new Employee();
+        //this will put into a constructor
         employee.firstName = "Peter";
         employee.lastName = "Piper";
         employee.ssn = "333-1234";
         
+        //this will be taken out because the methods have been made private
+        //to ensure they are done in the proper order
         employee.meetDepartmentStaff();
         employee.meetWithHrForBenefitAndSalryInfo();
         employee.reviewDeptPolicies();
