@@ -24,7 +24,8 @@ public class Cake {
     //// Some of the methods below violate encapsulation rules. Many should
     //   be private, those that have arguments (setters) need validation rules.
     ////////
-
+    
+    //want to make sure methods are called in the correct order. Can do this by making methods private
     public void setCakeName(String name) {
         this.cakeName = name;
     }
