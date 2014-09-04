@@ -20,20 +20,19 @@ public class Startup {
             not have to be a GUI class.
         */
         
-        //change this to only access through methods
-        //these are taken out because properties should not be accessed directly
-        Employee employee = new Employee();
-        //this will put into a constructor
-        employee.firstName = "Peter";
-        employee.lastName = "Piper";
-        employee.ssn = "333-1234";
+        //instantiate an employee object
+        Employee employee = new Employee("Peter", "Piper", "333-1234", "12-18-1990");
         
-        //this will be taken out because the methods have been made private
-        //to ensure they are done in the proper order
-        employee.meetDepartmentStaff();
-        employee.meetWithHrForBenefitAndSalryInfo();
-        employee.reviewDeptPolicies();
-
+        //without this the Orientation will be incomplete
+        //this calls the Orientation method and assigns a cubicleID
+        employee.doOrientation("c565");
+        
+        //shows information about the employee
+        System.out.println("Employee Name: " + employee.getFullName()
+                            +"\nEmployee SSN: " + employee.getSsn()
+                            +"\nEmployee Birthdate: " + employee.getBirthDate()
+                            +"\nEmployee Cube ID: " + employee.getCubeId() + "\n\n");
+                            
         System.out.println("The employee's status is: " + employee.getStatus());
     }
     

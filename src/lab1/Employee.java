@@ -13,18 +13,20 @@ import java.util.Date;
 public class Employee {
     private String firstName;
     private String lastName;
+    private String fullName;                //variable to get employee's full  name
     private String ssn;
-    private Date birthDate;
+    private String birthDate;
     private boolean metWithHr;
     private boolean metDeptStaff;
     private boolean reviewedDeptPolicies;
     private boolean movedIn;
     private String cubeId;
 
-    public Employee(String firstName, String lastName, String ssn) {
+    public Employee(String firstName, String lastName, String ssn, String birthDate) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.ssn = ssn;
+        this.birthDate = birthDate;
     }
     
     //Make methods private to ensure the order they will be performed in
@@ -70,13 +72,15 @@ public class Employee {
     }
     
     //this will do the orientation of all the methods in the correct order as listed
-    public void doOrientation() {
+    //is this. needed to get methods within class?
+    public void doOrientation(String cubeId) {
         this.meetWithHrForBenefitAndSalryInfo();
         this.meetDepartmentStaff();
         this.reviewDeptPolicies();
         this.moveIntoCubicle(cubeId);
     }
     
+    //this method returns whether or not the employee has gone fully through orientation
     public String getStatus() {
         if(metWithHr && metDeptStaff
            && reviewedDeptPolicies && movedIn) {
@@ -85,4 +89,47 @@ public class Employee {
             return "Orientation in progress...";
         }
     }
+    
+    //method to get full employee name
+    public String getFullName() {
+        fullName = (this.getFirstName() + " " + this.getLastName());
+        
+        return fullName;
+    }
+    
+    //getters and setters to see info about employee
+    public String getFirstName() {
+        return firstName;
+    }
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    
+    public String getLastName() {
+        return lastName;
+    }
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+
+    public String getCubeId() {
+        return cubeId;
+    }
+    public void setCubeId(String cubeId) {
+        this.cubeId = cubeId;
+    }
+    
+    
+    public String getBirthDate() {
+        return birthDate;
+    }
+
+    public String getSsn() {
+        return ssn;
+    }
+    
+    
+    
 }
